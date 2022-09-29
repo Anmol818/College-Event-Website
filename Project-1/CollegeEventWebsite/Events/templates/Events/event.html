@@ -1,0 +1,58 @@
+{% extends 'Events/base.html' %} 
+{% block css %} 
+        .card{
+            padding: 5px 0px;
+            display: inline-block;
+            width:40%;
+            margin: 2rem 3rem;
+            height: 25rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            transition: transformCard .2s; 
+        }
+
+        .card:hover{
+            background-color: rgb(223, 222, 230);
+            transform:scale(0.98);
+        }
+
+        .Cards{
+            border:3px solid black;
+            height: auto;
+        }
+
+        .card-img-top{
+            height:200px;
+        }
+{% endblock %}
+
+
+
+
+{% load static %}
+{% block body %}
+<div class="containerCard">
+    <div class="row">
+        {% for e in object_list %}
+        <div class="col-2 col-lg-2 col-md-1">
+        </div>
+        <div class="col-8 col-lg-8 col-md-10 Cards ">
+            <div class="card col-4 col-lg-4 col-md-5">
+                <img src="/media/{{ e.event_image }}" class="card-img-top" alt="No image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ e.event_name }}</h5>
+                    <p class="card-text">{{ e.event_description }}.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2 col-log-2 col-md-1">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
